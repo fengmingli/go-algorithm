@@ -25,11 +25,10 @@ func ConstructMaximumBinaryTree(nums []int) *Node {
 }
 
 func findMax(nums []int) (index int) {
-	index = 0
 	for i := 0; i < len(nums); i++ {
 		if nums[i] > nums[index] {
 			index = i
 		}
 	}
-	return index
+	return
 }
