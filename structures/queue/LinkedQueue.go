@@ -9,12 +9,15 @@
 
 package queue
 
+import "sync"
+
 type (
 	//Queue 队列
 	Queue struct {
 		top    *node
 		rear   *node
 		length int
+		lock   *sync.RWMutex
 	}
 	//双向链表节点
 	node struct {
@@ -26,7 +29,7 @@ type (
 
 // NewLinkedQueue 创建一个null的队列
 func NewLinkedQueue() *Queue {
-	return &Queue{nil, nil, 0}
+	return &Queue{nil, nil, 0, &sync.RWMutex{}}
 }
 
 // Len 获取队列长度
@@ -49,6 +52,8 @@ func (q *Queue) Peek() interface{} {
 
 // Push 入队操作
 func (q *Queue) Push(v interface{}) {
+	q.lock.Lock()
+	defer q.lock.Unlock()
 	n := &node{nil, nil, v}
 	if q.length == 0 {
 		q.top = n
@@ -64,6 +69,8 @@ func (q *Queue) Push(v interface{}) {
 // Pop 出队操作
 // 返回队列顶端元素，并删除该元素
 func (q *Queue) Pop() interface{} {
+	q.lock.Lock()
+	defer q.lock.Unlock()
 	if q.length == 0 {
 		return nil
 	}
