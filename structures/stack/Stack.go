@@ -57,6 +57,8 @@ func (stack *Stack) Peak() interface{} {
 
 // Len 返回栈长度
 func (stack *Stack) Len() int {
+	stack.lock.Lock()
+	defer stack.lock.Unlock()
 	return stack.list.Len()
 }
 
