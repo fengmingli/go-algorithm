@@ -23,6 +23,6 @@ func TestList(t *testing.T) {
 
 	for i := 0; i < len(all); i++ {
 		fmt.Println(all[i].GetData())
-		fmt.Println(all[i].GetDataNew())
+		fmt.Println(all[i].GetData())
 	}
 }
