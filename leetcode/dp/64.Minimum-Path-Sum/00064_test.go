@@ -4,7 +4,7 @@
  * @Since V1
  */
 
-package dp
+package leetcode
 
 import (
 	"fmt"

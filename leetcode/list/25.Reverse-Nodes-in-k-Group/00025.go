@@ -4,7 +4,7 @@
 * @Since V1
  */
 
-package list
+package _5_Reverse_Nodes_in_k_Group
 
 import (
 	"go-algorithm/structures"

@@ -4,7 +4,7 @@
  * @Since V1
  */
 
-package dp
+package leetcode
 
 //64 https://leetcode-cn.com/problems/minimum-path-sum/
 //给定一个包含非负整数的 m x n 网格 grid ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。
@@ -37,4 +37,11 @@ func minPathSum(grid [][]int) int {
 	}
 	//answer f(x,y)=f(x-1,y-1)
 	return grid[len(grid)-1][len(grid[0])-1]
+}
+
+func min(a, b int) int {
+	if a > b {
+		return b
+	}
+	return a
 }
